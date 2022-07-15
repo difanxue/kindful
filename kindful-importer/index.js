@@ -25,9 +25,14 @@ module.exports = async function (context, req) {
     };
     
     const csv_url = (req.query.csv_url || (req.body && req.body.csv_url));
-    parseCSV();
+    if(req && req.body && req.body.data && req.body.data.object)
+        csv_url = req.body.data.object.csv_url;
 
-    function parseCSV(){
+    parseCSV(csv_url).then(msg => {
+        console.log(msg);
+    });
+
+    async function parseCSV(csv_url){
         let rowCount = 0;
 
         // convert csv to json
@@ -43,17 +48,7 @@ module.exports = async function (context, req) {
                     // 1. remove string after '/'
                     // 2. replace the space to '_'
                     // 3. remove other symbols
-                    let pos = header.indexOf("/");
-                    let newHeader;
-                    if (pos != -1){
-                        newHeader = header.substring(0, pos);
-                    }
-                    else{
-                        newHeader = header;
-                    }
-                    newHeader = newHeader.replace(/\s/gm, '_');
-                    newHeader = newHeader.replace(/[^\w]/gm, '');
-                    newHeader = newHeader.toLowerCase();
+                    let newHeader = parseColumnName(header);
                     colQuery += newHeader;
                     colQuery += ",";
 
@@ -88,8 +83,22 @@ module.exports = async function (context, req) {
                 connection.connect();
                 connection.close();
             });
-            console.log('Inserted successfully ', rowCount, ' records.');
+            resolve('Inserted successfully ', rowCount, ' records.');
         });
-        
+    }
+
+    function parseColumnName(header) {
+        let pos = header.indexOf("/");
+        let newHeader;
+        if (pos != -1) {
+            newHeader = header.substring(0, pos);
+        }
+        else {
+            newHeader = header;
+        }
+        newHeader = newHeader.replace(/\s/gm, '_');
+        newHeader = newHeader.replace(/[^\w]/gm, '');
+        newHeader = newHeader.toLowerCase();
+        return newHeader;
     }
 }
