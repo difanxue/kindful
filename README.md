@@ -6,7 +6,8 @@ Create an Azure function to automatically insert the csv file data from the into
 2. Run the function locally. 
   Start the index.js (localated in kindful->kindful-importer-test->index.js) by Press F5.\
   Execute the functions kindful-importer-test (leftside bar -> azure -> worksapce).\
-  Enter the request body. e.g. { "csv_url": "https://raw.githubusercontent.com/difanxue/kindful-data/main/kindful_activities_sample_copy-1.csv" }\
+  Enter the request body. e.g.\
+    { "csv_url": "https://raw.githubusercontent.com/difanxue/kindful-data/main/kindful_activities_sample_copy-1.csv" }
 
 ## Dependencies
 NodeJS
