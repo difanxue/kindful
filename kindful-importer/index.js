@@ -3,36 +3,53 @@ var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
 const request = require('request');
 const csv = require('csvtojson');
-
+require('dotenv').config();
 
 module.exports = async function (context, req) {
 
     // Connection configuration to SQL server.
     const config = {  
-        server: 'focolare-na-data.database.windows.net',
+        server: process.env.SERVER,
         authentication: {
             type: 'default',
             options: {
-                userName: 'focolare-na-data', //update me
-                password: '2S4FXXata6vNYtg'  //update me
+                userName: process.env.USERNAME, //update me
+                password: process.env.PASSWORD  //update me
             }
         },
         options: {
             // If you are on Microsoft Azure, you need encryption:
             encrypt: true,
-            database: 'kindful-test'  //update me
+            database: process.env.DATABASE  //update me
         }
     };
-    
+    // const config = {  
+    //     server: 'focolare-na-data.database.windows.net',
+    //     authentication: {
+    //         type: 'default',
+    //         options: {
+    //             userName: 'focolare-na-data', //update me
+    //             password: '2S4FXXata6vNYtg'  //update me
+    //         }
+    //     },
+    //     options: {
+    //         // If you are on Microsoft Azure, you need encryption:
+    //         encrypt: true,
+    //         database: 'kindful-test'  //update me
+    //     }
+    // };
+
     const csv_url = (req.query.csv_url || (req.body && req.body.csv_url));
+
     if(req && req.body && req.body.data && req.body.data.object)
         csv_url = req.body.data.object.csv_url;
+    parseCSV(csv_url);
+    // parseCSV(csv_url).then(msg => {
+    //     console.log(msg);
+    // });
 
-    parseCSV(csv_url).then(msg => {
-        console.log(msg);
-    });
-
-    async function parseCSV(csv_url){
+    // async function parseCSV(csv_url){
+    function parseCSV(csv_url){
         let rowCount = 0;
 
         // convert csv to json
@@ -40,7 +57,7 @@ module.exports = async function (context, req) {
             csv()
             .fromStream(request.get(csv_url))
             .subscribe((json)=>{
-                let sqlQuery = "INSERT INTO [dbo].[activities] (";
+                let sqlQuery = "INSERT INTO " + process.env.TABLE_NAME + " (";
                 let colQuery = "";
                 let valueQuery = "";
                 for (let header in json){
@@ -62,9 +79,13 @@ module.exports = async function (context, req) {
                 sqlQuery += valueQuery;
                 sqlQuery = sqlQuery.substring(0, sqlQuery.length - 1);
                 sqlQuery += ")";
-                
 
                 // Initialize the connection
+                console.log(typeof process.env.CONFIG);
+               // const config = JSON.parse(process.env.CONFIG);
+                
+                //const config = JSON.parse(process.env.CONFIG);
+                // console.log('configParsed='+config);
                 let connection = new Connection(config);
                 // Setup event handler when the connection is established. 
                 connection.on('connect', function(err) {
@@ -83,7 +104,7 @@ module.exports = async function (context, req) {
                 connection.connect();
                 connection.close();
             });
-            resolve('Inserted successfully ', rowCount, ' records.');
+            // resolve('Inserted successfully ', rowCount, ' records.');
         });
     }
 
