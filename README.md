@@ -40,8 +40,8 @@ Configure the following environment variables and some examples:
 6. For more info [click here](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node#deploy-the-project-to-azure)
 
 ## References
-https://github.com/Keyang/node-csvtojson/blob/master/docs/csvtojson-v2.md#add-promise-and-async--await-support
-https://tediousjs.github.io/tedious/api-datatypes.html
-https://github.com/tediousjs/tedious/blob/master/examples/minimal.js
-https://github.com/tediousjs/tedious/blob/master/examples/bulk-load.js
-https://tediousjs.github.io/tedious/api-connection.html#function_execBulkLoad
+- https://github.com/Keyang/node-csvtojson/blob/master/docs/csvtojson-v2.md#add-promise-and-async--await-support
+- https://tediousjs.github.io/tedious/api-datatypes.html
+- https://github.com/tediousjs/tedious/blob/master/examples/minimal.js
+- https://github.com/tediousjs/tedious/blob/master/examples/bulk-load.js
+- https://tediousjs.github.io/tedious/api-connection.html#function_execBulkLoad
