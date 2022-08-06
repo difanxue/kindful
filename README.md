@@ -29,7 +29,7 @@ Configure the following environment variables and some examples:
   This will initialize a server that will be listening to HTTP requests.
   Execute the function kindful-importer (leftside bar -> azure -> workspace).\
   Enter the request body. e.g.\
-    { "data": {"object": {"csv_url": "https://csantos-20220731-tmp.s3.us-west-2.amazonaws.com/Activities27.csv"}}}
+    { "data": {"object": {"csv_url": "https://test-bucket.s3.us-west-2.amazonaws.com/test.csv"}}}
 
 ## How to deploy the function to the cloud?
 1. You first need to create an Azure function in Azure cloud
