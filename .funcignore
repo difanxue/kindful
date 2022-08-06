@@ -1,0 +1,8 @@
+local.settings.json
+create_tables.sql
+kindful-importer/sample.dat
+kindful-importer/sample-http-trigger.json
+.DS_Store
+.git/*
+.vscode/*
+.gitignore
