@@ -1,0 +1,166 @@
+{
+    "invocationId": "0aaf6c60-b12e-4e00-a845-d74ecbebf44a",
+    "traceContext": {
+        "traceparent": "00-70a0498651fe9d72000710f3aeead89a-c897899266257d56-00",
+        "tracestate": "",
+        "attributes": {}
+    },
+    "executionContext": {
+        "invocationId": "0aaf6c60-b12e-4e00-a845-d74ecbebf44a",
+        "functionName": "test",
+        "functionDirectory": "/home/site/wwwroot/test",
+        "retryContext": null
+    },
+    "bindings": {
+        "req": {
+            "method": "POST",
+            "url": "https://test.azurewebsites.net/api/test",
+            "originalUrl": "https://test.azurewebsites.net/api/test",
+            "headers": {
+                "accept": "*/*",
+                "connection": "keep-alive",
+                "host": "test.azurewebsites.net",
+                "user-agent": "Ruby",
+                "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+                "content-type": "application/json",
+                "max-forwards": "10",
+                "content-length": "426",
+                "x-newrelic-id": "UAQGWVVWGwEDVllSBgE=",
+                "x-newrelic-transaction": "PxQAV15VXVFSV1ZRVAYFU1JTFB8EBw8RVU4aVQ4AAldRBwpWAgIEUFEAVUNKQQxVCVQEBAYCFTs=",
+                "x-arr-log-id": "e3788b1d-4490-49d7-a374-dcac30e97fc7",
+                "client-ip": "35.190.145.232:34212",
+                "disguised-host": "test.azurewebsites.net",
+                "x-site-deployment-id": "test",
+                "was-default-hostname": "test.azurewebsites.net",
+                "x-forwarded-proto": "https",
+                "x-appservice-proto": "https",
+                "x-arr-ssl": "2048|256|CN=Microsoft Azure TLS Issuing CA 01, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+                "x-forwarded-tlsversion": "1.2",
+                "x-forwarded-for": "35.190.145.232:34212",
+                "x-original-url": "/api/test",
+                "x-waws-unencoded-url": "/api/test"
+            },
+            "query": {},
+            "params": {},
+            "body": {
+                "type": "report.create",
+                "id": "733d4ba366c40aa080",
+                "created_at": 1659258065,
+                "data": {
+                    "object": {
+                        "id": 9287,
+                        "name": "Activities - Yesterday",
+                        "deleted_at": null,
+                        "csv_url": "https://test.s3.amazonaws.com/uploads/report/csv_file/test"
+                    }
+                }
+            },
+            "rawBody": "{\"type\":\"report.create\",\"id\":\"733d4ba366c40aa080\",\"created_at\":1659258065,\"data\":{\"object\":{\"id\":9287,\"name\":\"Activities - Yesterday\",\"deleted_at\":null,\"csv_url\":\"https://test.s3.amazonaws.com/uploads/report/csv_file/test\"}}}"
+        }
+    },
+    "bindingData": {
+        "invocationId": "0aaf6c60-b12e-4e00-a845-d74ecbebf44a",
+        "type": "report.create",
+        "id": "733d4ba366c40aa080",
+        "created_at": 1659258065,
+        "data": {
+            "object": {
+                "id": 9287,
+                "name": "Activities - Yesterday",
+                "deleted_at": null,
+                "csv_url": "https://test.s3.amazonaws.com/uploads/report/csv_file/test"
+            }
+        },
+        "query": {},
+        "headers": {
+            "accept": "*/*",
+            "connection": "keep-alive",
+            "host": "test.azurewebsites.net",
+            "user-Agent": "Ruby",
+            "accept-Encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "content-Type": "application/json",
+            "max-Forwards": "10",
+            "content-Length": "426",
+            "x-Newrelic-Id": "UAQGWVVWGwEDVllSBgE=",
+            "x-Newrelic-Transaction": "PxQAV15VXVFSV1ZRVAYFU1JTFB8EBw8RVU4aVQ4AAldRBwpWAgIEUFEAVUNKQQxVCVQEBAYCFTs=",
+            "x-ARR-LOG-ID": "e3788b1d-4490-49d7-a374-dcac30e97fc7",
+            "cLIENT-IP": "35.190.145.232:34212",
+            "dISGUISED-HOST": "test.azurewebsites.net",
+            "x-SITE-DEPLOYMENT-ID": "test",
+            "wAS-DEFAULT-HOSTNAME": "test.azurewebsites.net",
+            "x-Forwarded-Proto": "https",
+            "x-AppService-Proto": "https",
+            "x-ARR-SSL": "2048|256|CN=Microsoft Azure TLS Issuing CA 01, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-Forwarded-TlsVersion": "1.2",
+            "x-Forwarded-For": "35.190.145.232:34212",
+            "x-Original-URL": "/api/test",
+            "x-WAWS-Unencoded-URL": "/api/test"
+        },
+        "sys": {
+            "methodName": "test",
+            "utcNow": "2022-07-31T09:01:24.293Z",
+            "randGuid": "130b8891-bd10-4189-a658-3ce3d78cfaee"
+        }
+    },
+    "bindingDefinitions": [
+        {
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "res",
+            "type": "http",
+            "direction": "out"
+        }
+    ],
+    "req": {
+        "method": "POST",
+        "url": "https://test.azurewebsites.net/api/test",
+        "originalUrl": "https://test.azurewebsites.net/api/test",
+        "headers": {
+            "accept": "*/*",
+            "connection": "keep-alive",
+            "host": "test.azurewebsites.net",
+            "user-agent": "Ruby",
+            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "content-type": "application/json",
+            "max-forwards": "10",
+            "content-length": "426",
+            "x-newrelic-id": "UAQGWVVWGwEDVllSBgE=",
+            "x-newrelic-transaction": "PxQAV15VXVFSV1ZRVAYFU1JTFB8EBw8RVU4aVQ4AAldRBwpWAgIEUFEAVUNKQQxVCVQEBAYCFTs=",
+            "x-arr-log-id": "e3788b1d-4490-49d7-a374-dcac30e97fc7",
+            "client-ip": "35.190.145.232:34212",
+            "disguised-host": "test.azurewebsites.net",
+            "x-site-deployment-id": "test",
+            "was-default-hostname": "test.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure TLS Issuing CA 01, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.2",
+            "x-forwarded-for": "35.190.145.232:34212",
+            "x-original-url": "/api/test-data",
+            "x-waws-unencoded-url": "/api/test"
+        },
+        "query": {},
+        "params": {},
+        "body": {
+            "type": "report.create",
+            "id": "733d4ba366c40aa080",
+            "created_at": 1659258065,
+            "data": {
+                "object": {
+                    "id": 9287,
+                    "name": "Activities - Yesterday",
+                    "deleted_at": null,
+                    "csv_url": "https://test.s3.amazonaws.com/uploads/report/csv_file/test"
+                }
+            }
+        },
+        "rawBody": "{\"type\":\"report.create\",\"id\":\"733d4ba366c40aa080\",\"created_at\":1659258065,\"data\":{\"object\":{\"id\":9287,\"name\":\"Activities - Yesterday\",\"deleted_at\":null,\"csv_url\":\"https://test.s3.amazonaws.com/uploads/report/csv_file/test\"}}}"
+    },
+    "res": {
+        "headers": {},
+        "cookies": []
+    }
+}
